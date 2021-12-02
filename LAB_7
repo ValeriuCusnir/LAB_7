@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+#include <math.h>
+
+
+class GeometricBody {
+
+    public:
+           int getSurface(){};
+           int getVolume(){};
+
+};
+
+class Cub : public GeometricBody{
+
+public: int a;
+
+    public:
+         getSurface(int a){
+    return 6*a*a;
+    };
+    getVolume(int a){
+    return a*a*a;
+    }
+} ;
+
+class Sphere : public GeometricBody{
+
+public: int r;
+
+    public:
+    int getSurface(int r)
+        {
+    return 4*M_PI*pow(r,2);
+        };
+
+    int getVolume(int r)
+    {
+    double rasp = (4.0/3) * M_PI * pow(r,3);
+    return rasp;
+    };
+} ;
+
+class Parallelepiped : public GeometricBody{
+
+public: int a;
+        int b;
+        int c;
+
+    public:
+    int getSurface(int a,int b,int c)
+        {
+    return 2 * (a*b + a*c + b*c);
+        };
+
+    int getVolume(int a,int b,int c)
+    {
+    return a * b * c;
+    };
+} ;
+
+
+int main()
+{
+    Cub c;
+    Sphere s;
+    Parallelepiped p;
+
+    cout <<"Suprafata cubului : " <<c.getSurface(2)<<"\n";
+    cout <<"Volumul cubului : "<<c.getVolume(2)<<"\n";
+    cout <<"\n";
+     cout <<"Suprafata sferei : " <<s.getSurface(2)<<"\n";
+    cout <<"Volumul sferei : "<<s.getVolume(2)<<"\n";
+    cout <<"\n";
+     cout <<"Suprafata paralelogramului : " <<p.getSurface(2,3,4)<<"\n";
+    cout <<"Volumul paralelogramului : "<<p.getVolume(2,3,4)<<"\n";
+    return 0;
+}
+
+
