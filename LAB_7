@@ -6,19 +6,18 @@ using namespace std;
 class GeometricBody {
 
     public:
-           int getSurface(){};
+          int getSurface(){};
            int getVolume(){};
 
 };
 
 class Cub : public GeometricBody{
 
-public: int a;
 
     public:
-         getSurface(int a){
+     int getSurface(int a){
     return 6*a*a;
-    };
+    }
     getVolume(int a){
     return a*a*a;
     }
@@ -26,7 +25,7 @@ public: int a;
 
 class Sphere : public GeometricBody{
 
-public: int r;
+
 
     public:
     int getSurface(int r)
@@ -43,9 +42,6 @@ public: int r;
 
 class Parallelepiped : public GeometricBody{
 
-public: int a;
-        int b;
-        int c;
 
     public:
     int getSurface(int a,int b,int c)
@@ -60,11 +56,14 @@ public: int a;
 } ;
 
 
+
 int main()
 {
     Cub c;
     Sphere s;
     Parallelepiped p;
+    int Geometricbody_s[3][2]= {{c.getSurface(2), c.getVolume(2)}, {s.getSurface(2),s.getVolume(2)}, {p.getSurface(2,3,4),p.getVolume(2,3,4)}};
+
 
     cout <<"Suprafata cubului : " <<c.getSurface(2)<<"\n";
     cout <<"Volumul cubului : "<<c.getVolume(2)<<"\n";
@@ -74,7 +73,9 @@ int main()
     cout <<"\n";
      cout <<"Suprafata paralelogramului : " <<p.getSurface(2,3,4)<<"\n";
     cout <<"Volumul paralelogramului : "<<p.getVolume(2,3,4)<<"\n";
+
     return 0;
 }
+
 
 
